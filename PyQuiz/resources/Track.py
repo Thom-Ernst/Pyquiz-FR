@@ -1,8 +1,12 @@
 import pygame
 
 class Track:
-    def __init__(self, name, description, song, anythingelse):
-        dolorem_ipsum = "Text"
+    def __init__(self, name, description, song):
+        self.name = name
+        self.description = description
+        self.song = song
+        music = pygame.mixer.Sound(song)
 
-    def playsong(self, ):
-        pygame.dostuff
+    def playsong(self):
+        pygame.init()
+        music = pygame.mixer.Sound(self.song)
