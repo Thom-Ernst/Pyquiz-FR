@@ -9,4 +9,5 @@ class Track:
 
     def playsong(self):
         pygame.init()
-        music = pygame.mixer.Sound(self.song)
+        pygame.mixer.init()
+        pygame.mixer.music.load(self.song)
