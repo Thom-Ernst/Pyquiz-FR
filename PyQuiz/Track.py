@@ -1,9 +1,8 @@
 import pygame
 
-class Track:
-    def __init__(self, name, description, song):
+class Track_class:
+    def __init__(self, name, song):
         self.name = name
-        self.description = description
         self.song = song
 
     def playsong(self):
