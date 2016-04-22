@@ -72,16 +72,16 @@ def option3(option, points, song):
 designated_song = None
 
 
-def assign_song(chosensong1, chosensong2, chosensong3):
+def assign_song(thesong, chosensong1, chosensong2, chosensong3):
     if chosensong1 is True:
-        designated_song = firstsong.song
+        thesong = firstsong.song
     elif chosensong2 is True:
-        designated_song = secondsong.song
+        thesong = secondsong.song
     elif chosensong3 is True:
-        designated_song = thirdsong.song
+        thesong = thirdsong.song
     else:
         print "Error: no song was assigned!"
-assign_song(objet1, objet2, objet3)
+assign_song(designated_song, objet1, objet2, objet3)
 
 pygame.mixer.music.load(designated_song)
 pygame.mixer.music.play()
