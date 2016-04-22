@@ -7,9 +7,9 @@ pygame.init()
 firstsong = vivaldi_spring_allegro = Track_class("Lente - Vivaldi", 'music/vivaldi_spring_allegro.ogg')
 secondsong = ode_to_joy = Track_class("Ode Aan de Vreugde", 'music/ode_to_joy.ogg')
 thirdsong = toccata_and_fugue = Track_class("Toccata en Fugue", 'music/toccata_and_fugue.ogg')
-objet1 = 1
-objet2 = 0
-objet3 = 0
+objet1 = True
+objet2 = False
+objet3 = False
 
 keuze1 = firstsong.name
 keuze2 = secondsong.name
@@ -19,7 +19,7 @@ score = 0
 
 
 def option1(option, points, song):
-    if option == 1:
+    if option is True:
         print "Dat is correct!"
         pygame.mixer.music.load('sounds/Nyes.ogg')
         pygame.mixer.music.play()
@@ -32,7 +32,7 @@ def option1(option, points, song):
 
 
 def option2(option, points, song):
-    if option == 1:
+    if option is True:
         print "Dat is correct!"
         pygame.mixer.music.load('sounds/Nyes.ogg')
         pygame.mixer.music.play()
@@ -45,7 +45,7 @@ def option2(option, points, song):
 
 
 def option3(option, points, song):
-    if option == 1:
+    if option is True:
         print "Dat is correct!"
         pygame.mixer.music.load('sounds/Nyes.ogg')
         pygame.mixer.music.play()
@@ -63,44 +63,50 @@ def option3(option, points, song):
 #     '3': option3(objet3, score, keuze3)
 # }
 
+# menu = {
+#     '1': opt1,
+#     '2': opt2,
+#     '3': opt3
+# }
 
-def opt1():
-    pygame.mixer.music.stop()
-    option1(objet1, score, keuze1)
-
-
-def opt2():
-    pygame.mixer.music.stop()
-    option2(objet2, score, keuze2)
+designated_song = None
 
 
-def opt3():
-    pygame.mixer.music.stop()
-    option3(objet3, score, keuze3)
-
-menu = {
-    '1': opt1,
-    '2': opt2,
-    '3': opt3
-}
-
-designated_song = firstsong.song
-if objet1 == 1:
-    designated_song = firstsong.song
-elif objet2 == 1:
-    designated_song = secondsong.song
-elif objet3 == 1:
-    designated_song = thirdsong.song
-else:
-    print "Error: no song was assigned!"
+def assign_song(chosensong1, chosensong2, chosensong3):
+    if chosensong1 is True:
+        designated_song = firstsong.song
+    elif chosensong2 is True:
+        designated_song = secondsong.song
+    elif chosensong3 is True:
+        designated_song = thirdsong.song
+    else:
+        print "Error: no song was assigned!"
+assign_song(objet1, objet2, objet3)
 
 pygame.mixer.music.load(designated_song)
 pygame.mixer.music.play()
-print "De keuzes zijn:"
-print ""
-print "1. {0}".format(keuze1)
-print "2. {0}".format(keuze2)
-print "3. {0}".format(keuze3)
-answer = raw_input("Je antwoord hier: ")
-menu[answer]()
+
+
+def vraag():
+    print "De keuzes zijn:"
+    print ""
+    print "1. {0}".format(keuze1)
+    print "2. {0}".format(keuze2)
+    print "3. {0}".format(keuze3)
+    answer = raw_input("Je antwoord hier: ")
+    # menu[answer]()
+    if answer is "1":
+        pygame.mixer.music.stop()
+        option1(objet1, score, thirdsong.song)
+    elif answer is "2":
+        pygame.mixer.music.stop()
+        option2(objet2, score, thirdsong.song)
+    elif answer is "3":
+        pygame.mixer.music.stop()
+        option3(objet3, score, thirdsong.song)
+    else:
+        print "Je moet een correct getal invoeren!"
+        vraag()
+
+
 print score
