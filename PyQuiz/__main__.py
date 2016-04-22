@@ -20,12 +20,12 @@ score = 0
 
 def option1(option, points, song):
     if option is True:
-        print "Dat is correct!"
+        print Markup.green + "Dat is correct!" + Markup.end
         pygame.mixer.music.load('sounds/Nyes.ogg')
         pygame.mixer.music.play()
         points += 1
     else:
-        print "Dat is niet juist!"
+        print Markup.red + "Dat is niet juist!" + Markup.end
         pygame.mixer.music.load('sounds/No.ogg')
         pygame.mixer.music.play()
         print "Het juiste antwoord was {0}".format(song.name)
@@ -33,12 +33,12 @@ def option1(option, points, song):
 
 def option2(option, points, song):
     if option is True:
-        print "Dat is correct!"
+        print Markup.green + "Dat is correct!" + Markup.end
         pygame.mixer.music.load('sounds/Nyes.ogg')
         pygame.mixer.music.play()
         points += 1
     else:
-        print "Dat is niet juist!"
+        print Markup.red + "Dat is niet juist!" + Markup.end
         pygame.mixer.music.load('sounds/No.ogg')
         pygame.mixer.music.play()
         print "Het juiste antwoord was {0}".format(song.name)
@@ -46,12 +46,12 @@ def option2(option, points, song):
 
 def option3(option, points, song):
     if option is True:
-        print "Dat is correct!"
+        print Markup.green + "Dat is correct!" + Markup.end
         pygame.mixer.music.load('sounds/Nyes.ogg')
         pygame.mixer.music.play()
         points += 1
     else:
-        print "Dat is niet juist!"
+        print Markup.red + "Dat is niet juist!" + Markup.end
         pygame.mixer.music.load('sounds/No.ogg')
         pygame.mixer.music.play()
         print "Het juiste antwoord was {0}".format(song.name)
@@ -90,10 +90,13 @@ pygame.mixer.music.play()
 def vraag():
     print "De keuzes zijn:"
     print ""
-    print "1. {0}".format(keuze1)
-    print "2. {0}".format(keuze2)
-    print "3. {0}".format(keuze3)
-    answer = raw_input("Je antwoord hier: ")
+    time.sleep(1)
+    print Markup.blue + "1. {0}".format(keuze1) + Markup.end
+    time.sleep(0.5)
+    print Markup.blue + "2. {0}".format(keuze2) + Markup.end
+    time.sleep(0.5)
+    print Markup.blue + "3. {0}".format(keuze3) + Markup.end
+    answer = raw_input(Markup.purple + "Typ antwoord hier:  " + Markup.end)
     # menu[answer]()
     if answer is "1":
         pygame.mixer.music.stop()
