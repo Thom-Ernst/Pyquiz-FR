@@ -5,10 +5,13 @@ class Track_class:
         self.name = name
         self.song = song
 
-    def playsong(self):
-        pygame.init()
-        music = pygame.mixer.Sound(self.song)
+    def playsound(self):
+        sound = pygame.mixer.Sound(self.song)
         clock = pygame.time.Clock()
-        music.play()
+        sound.play()
         while True:
             clock.tick(1)
+
+    def playsong(self):
+        pygame.mixer.music.load(self.song)
+        pygame.mixer.music.play(0)
