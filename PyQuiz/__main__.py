@@ -206,7 +206,7 @@ if game is False:
         print "Goed werk!!"
     time.sleep(1.5)
     print "\n"
-    print "Dit spel werd voor u gemaakt door Thom Ernst en Kathleel Puvrez."
+    print "Dit spel werd voor u gemaakt door Thom Ernst en Kathleen Puvrez."
     time.sleep(0.2)
     print Markup.green + Markup.bold + "Kom nog maar eens terug, {0}".format(naam) + Markup.end
     time.sleep(5)
