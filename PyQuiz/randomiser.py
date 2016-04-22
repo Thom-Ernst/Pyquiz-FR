@@ -1,5 +1,4 @@
 from dictionary import *
-import random
 
 songs_array = [
     songs['rock1'],
@@ -30,8 +29,4 @@ songs_array = [
     songs['meme2'],
     songs['meme3'],
 ]
-def generatesongs():
-    firstsong = random.choice(songs_array)
-    secondsong = random.choice(songs_array)
-    thirdsong = random.choice(songs_array)
 

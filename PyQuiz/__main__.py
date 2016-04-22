@@ -1,16 +1,36 @@
 import time
 import pygame
+import random
 from randomiser import *
-from dictionary import *
-from Track import Track_class
 from ConsoleColorsClass import Markup
 pygame.init()
 
+
+def generatesongs():
+    global firstsong
+    global secondsong
+    global thirdsong
+    firstsong = random.choice(songs_array)
+    secondsong = random.choice(songs_array)
+    thirdsong = random.choice(songs_array)
+
 generatesongs()
 
-objet1 = False
-objet2 = False
-objet3 = True
+true_false = [True, False]
+objet1 = random.choice(true_false)
+objet2 = random.choice(true_false)
+objet3 = random.choice(true_false)
+if objet1 is True:
+    objet2 == False
+    objet3 == False
+elif objet2 is True:
+    objet1 == False
+    objet3 == False
+elif objet3 is True:
+    objet1 == False
+    objet2 == False
+else:
+    objet1 = True
 
 keuze1 = firstsong.name
 keuze2 = secondsong.name
