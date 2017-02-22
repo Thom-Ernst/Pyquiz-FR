@@ -9,3 +9,12 @@ arrayRandomized = [
 	#Put future songs here in this format: songs['name'],
 ]
 
+
+def chooseListing():
+    print
+
+
+
+def chooseTrack():
+    print
+
