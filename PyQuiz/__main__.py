@@ -1,7 +1,7 @@
 import time
 import random
 import pygame
-from dictionary import chooseListing, chooseTrack
+from dictionary import DJ
 from texts import *
 from Layout import Layout
 pygame.init()
@@ -12,19 +12,21 @@ intScore = 0
 intRonde = 0
 
 # functions go here
-
+dj = DJ()
 
 def intro():
     global boolGameloop
-    print Layout.bold + textIntro1 + "\n"
+    print textBlank + Layout.bold + textIntro1 + "\n"
 
     def naamopgeven():
         global strNaam
         strNaam = raw_input(textIntro2 + Layout.blue) + Layout.end
-        if strNaam == "":
-            print Layout.red + textError1
-            naamopgeven()
+
     naamopgeven()
+
+    if not strNaam:
+        print Layout.red + textError1
+        naamopgeven()
     print Layout.bold + textIntro3.format(strNaam) + Layout.end
 
 
@@ -34,16 +36,19 @@ def einde():
     print textEinde3
 
 
-def startRound():
-    print
+def startround():
+    print DJ.arrayChosen
+    print DJ.trackChosen
+    raw_input()
 
 intro()
 
 while boolGameloop:
     # all the functions executed in their respective order
-    chooseListing()
-    chooseTrack()
-    startRound()
+    dj.chooseListing()
+    dj.chooseTrack()
+    startround()
+    intRonde += 1
 
     if intRonde == 10:
         boolGameloop = False
