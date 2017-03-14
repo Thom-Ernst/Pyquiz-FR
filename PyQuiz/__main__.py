@@ -37,8 +37,8 @@ def einde():
 
 
 def startround():
-    print DJ.arrayChosen
-    print DJ.trackChosen
+    print dj.arrayChosen
+    print dj.trackChosen
     raw_input()
 
 intro()
