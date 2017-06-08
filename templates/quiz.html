@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Python Flask App</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/vendor/font-awesome/css/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/pure-min.css">
+    <script src="../static/js/jquery-3.2.1.min.js"></script>
+    <link rel="icon"
+      type="image/png"
+      href="../static/img/favicon.png">
+</head>
+<body>
+    <script>
+        var round = {{round}};
+        if (round > 10){
+            document.location = 'scoreBoard'
+        };
+    </script>
+    <audio id="correct">
+        <source src="static/sounds/correct.ogg" type="audio/ogg">
+        Your browser does not support this audio format.
+    </audio>
+    <audio id="incorrect">
+        <source src="static/sounds/incorrect.ogg" type="audio/ogg">
+        Your browser does not support this audio format.
+    </audio>
+    <script>
+        var lastresult = {{lastresult}}
+            if (lastresult == 2 ) {
+                var sound = document.getElementById("incorrect");
+                sound.play();
+            }else if (lastresult == 1){
+                var sound = document.getElementById("correct");
+                sound.play();
+            };
+    </script>
+    <div class="container">
+        <div class="header">
+            <h3 class="text-muted">Pyquiz</h3>
+        </div>
+        <div class="jumbotron">
+            <style>
+                .spc {
+                    padding: 3px;
+                }
+
+                .form-answer {
+                    width: 650px;
+                }
+            </style>
+            <p>{{gamestring}}</p>
+            <p>Round {{round}} of 10</p>
+            <br>
+            <div class="pure-g">
+                <br>
+                <div class="pure-u-1-2 spc">
+                    <input type="submit" id="btnAnswer1" class="btn btn-lg btn-primary btn-block p2" type="button" value="{{song1}}">
+                </div>
+                <div class="pure-u-1-2 spc">
+                    <input type="submit" id="btnAnswer2" class="btn btn-lg btn-primary btn-block p2" type="button" value="{{song2}}">
+                </div>
+                <div class="pure-u-1-2 spc">
+                    <input type="submit" id="btnAnswer3" class="btn btn-lg btn-primary btn-block p2" type="button" value="{{song3}}">
+                </div>
+                <div class="pure-u-1-2 spc">
+                    <input type="submit" id="btnAnswer4" class="btn btn-lg btn-primary btn-block p2" type="button" value="{{song4}}">
+                </div>
+            </div>
+        </div>
+        <div>
+            <audio autoplay>
+                <source src="static/{{file}}" type="audio/ogg">
+                Your browser does not support this audio format.
+            </audio>
+        </div>
+        <script>
+            $(function () {
+                $('#btnAnswer1').click(function () {
+                    var answer = 1
+                    $.ajax({
+                        url: '/checkAnswer',
+                        data: {
+                            answer: answer
+                        },
+                        type: 'POST'
+                    }).done(function (data) {
+                        console.log(data);
+                    }).fail(function (error) {
+                        console.log(error);
+                    });
+                    location.reload();
+                });
+            });
+
+            $(function () {
+                $('#btnAnswer2').click(function () {
+                    var answer = 2
+                    $.ajax({
+                        url: '/checkAnswer',
+                        data: {
+                            answer: answer
+                        },
+                        type: 'POST'
+                    }).done(function (data) {
+                        console.log(data);
+                    }).fail(function (error) {
+                        console.log(error);
+                    });
+                    location.reload();
+                });
+            });
+
+            $(function () {
+                $('#btnAnswer3').click(function () {
+                    var answer = 3
+                    $.ajax({
+                        url: '/checkAnswer',
+                        data: {
+                            answer: answer
+                        },
+                        type: 'POST'
+                    }).done(function (data) {
+                        console.log(data);
+                    }).fail(function (error) {
+                        console.log(error);
+                    });
+                    location.reload();
+                });
+            });
+
+            $(function () {
+                $('#btnAnswer4').click(function () {
+                    var answer = 4
+                    $.ajax({
+                        url: '/checkAnswer',
+                        data: {
+                            answer: answer
+                        },
+                        type: 'POST'
+                    }).done(function (data) {
+                        console.log(data);
+                    }).fail(function (error) {
+                        console.log(error);
+                    });
+                    location.reload();
+                });
+            });
+        </script>
+        <footer class="jumbotron" style="margin-left: 30%; margin-right: 30%">
+            <details>
+                <summary>2016-2017</summary>
+                <p style="font-size: 100%"> Thom Ernst</p>
+                <p style="font-size: 100%">Immaculata Instituut - Oostmalle</p>
+            </details>
+            <div>
+                <a href="https://github.com/ThomE-immalle/GIP-Database-Project"><span class="fa fa-github fa-3x"></span></a>
+                <a href="mailto:thom.ernst@immalle.be"><span class="fa fa-envelope fa-3x"></span></a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

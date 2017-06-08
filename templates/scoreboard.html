@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Python Flask App</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/vendor/font-awesome/css/font-awesome.css" type="text/css">
+    <link rel="icon"
+      type="image/png"
+      href="../static/img/favicon.png">
+    <style>
+        th {
+            text-align: center;
+        }
+        table {
+            border-width: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <br>
+            <h3 class="text-muted">Python Flask App</h3>
+        </div>
+        <div class="jumbotron">
+            <h1>Scoreboard</h1>
+            <h3>How good are you at quizzing?</h3>
+            <br>
+            <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for row in scoredata %} 
+                    <tr>
+                    {% for field in row %} 
+                    <td>{{field}}</td> 
+                    {% endfor %} 
+                    </tr> 
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <footer class="jumbotron" style="margin-left: 30%; margin-right: 30%">
+            <details>
+                <summary>2016-2017</summary>
+                <p style="font-size: 100%"> Thom Ernst</p>
+                <p style="font-size: 100%">Immaculata Instituut - Oostmalle</p>
+            </details>
+            <div>
+                <a href="https://github.com/ThomE-immalle/GIP-Database-Project"><span class="fa fa-github fa-3x"></span></a>
+                <a href="mailto:thom.ernst@immalle.be"><span class="fa fa-envelope fa-3x"></span></a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
